@@ -19,8 +19,9 @@
 
 ## Overview
 
-_**HoopsCard** is a website where users are able to create a player profile for current and former NBA players. Users are able to create an account that features their favorite players' name and image. Each player profile will also include a list of skills and qualities that users can attribute to each player as they see fit. All users will see a unified feed of all user posts, along with a "my players" feed with just their own posts. 
+**HoopsCard** is a website where users are able to create a player profile for current and former NBA players. Users are able to create an account that features their favorite players' name and image. Each player profile will also include a list of skills and qualities that users can attribute to each player as they see fit. All users will see a unified feed of all user posts, along with a "my players" feed with just their own posts. 
 
-   - **Features:** A full feature list for your MVP app.
+   - **Features:**
+      - hjd
    - **Goals:** The overarching goals for your project.
    - **Challenges:** An explanation of the challenges you expect to face with this project.
