@@ -1,8 +1,6 @@
 # HoopsCard
 - [Overview](#overview)
 - [MVP](#mvp)
-  - [Goals](#goals)
-  - [Libraries and Dependencies](#libraries-and-dependencies)
   - [Client (Front End)](#client-front-end)
     - [Wireframes](#wireframes)
     - [Component Tree](#component-tree)
@@ -12,8 +10,7 @@
   - [Server (Back End)](#server-back-end)
     - [ERD Model](#erd-model)
 - [Post-MVP](#post-mvp)
-- [Code Showcase](#code-showcase)
-- [Code Issues & Resolutions](#code-issues--resolutions)
+
 
 <br>
 
@@ -106,7 +103,7 @@
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Create homepage   |    H     |     3 hrs      |        |       |
+| Create homepage   |    H     |     3 hrs      |        |       | TBD
 | user functionality |    H     |     3 hrs      |        |     TBD     |
 | login page |    H     |     3 hrs      |         |     TBD     |
 | registration page |    H     |     3 hrs      |        |     TBD     |
