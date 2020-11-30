@@ -96,3 +96,46 @@
 
 ![imageAlt](https://i.imgur.com/viUiOGb.png)
 
+![imageAlt](https://i.imgur.com/WoTOxSX.png)
+
+## Component Hierarchy
+
+![imageAlt](https://i.imgur.com/Vk6lgzg.png)
+
+## Timeframe Estimates 
+
+## ERD Model
+
+![imageAlt](https://i.imgur.com/NXRwn4O.png)
+
+## Data Architecture 
+
+``` structure
+
+client
+|__ src/
+      |__ components /
+            |__ Header.jsx
+      |__ containers
+            |__ MainContainer.jsx
+      |__ layouts
+            |__ Layout.jsx
+      |__ screens
+            |__ Player.jsx
+            |__ PlayerCreate.jsx
+            |__ PlayerEdit.jsx
+            |__ PlayerDetail.jsx
+            |__ Attributes.jsx
+            |__ Login.jsx
+            |__ Register.jsx
+      |__ services
+            |__ apiConfig.js
+            |__ auth.js
+            |__ attributes.js
+            |__ players.js
+
+
+```
+
+
+
