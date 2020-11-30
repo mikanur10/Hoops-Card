@@ -106,18 +106,18 @@
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Create homepage   |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
-| user functionality |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| login page |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| registration page |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| posts feed |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| backend crud routes |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| front end crud |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| CSS |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| search |    L     |     3 hrs      |     1 hrs     |     TBD     |
-| unified feed |    L     |     3 hrs      |     1 hrs     |     TBD     |
-| user admin page |    L     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
+| Create homepage   |    H     |     3 hrs      |        |       |
+| user functionality |    H     |     3 hrs      |        |     TBD     |
+| login page |    H     |     3 hrs      |         |     TBD     |
+| registration page |    H     |     3 hrs      |        |     TBD     |
+| posts feed |    H     |     3 hrs      |       |     TBD     |
+| backend crud routes |    H     |     3 hrs      |       |     TBD     |
+| front end crud |    H     |     3 hrs      |       |     TBD     |
+| CSS |    H     |     3 hrs      |       |     TBD     |
+| search |    L     |     3 hrs      |         |     TBD     |
+| unified feed |    L     |     3 hrs      |        |     TBD     |
+| user admin page |    L     |     3 hrs      |         |     TBD     |
+| TOTAL               |          |     33 hrs      |        |     TBD     |
 
 ## ERD Model
 
