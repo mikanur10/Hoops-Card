@@ -26,16 +26,16 @@
       - Add attributes to each player from a drop down menu 
       - User can view all of their posts on a "my players" feed
       - Users can click into each post and view/edit the listed attributes
-      - Users can delete and edit each post
+      - Users can delete and edit each of their own posts
    - **Goals:** 
       - Ruby on rails back-end 
       - React front-end
-      - Full CRUD on all player post
+      - Full CRUD on all player posts
       - Associate all players with pre-determined attributes and display on the post's page
    - **Challenges:** 
       - Creating a unified view of all posts across users
       - Persisting state for each current user
-      - Styling using responsive CSS, such ass flex-box, grid and percentages 
+      - Styling using responsive CSS, such ass flex-box, grid and percentage based measurements
       
 ## MVP
 
@@ -152,7 +152,7 @@ client
 ## Post-MVP
 
 - A unified feed of all users posts
-- A search function to search for players ny name or attributes
+- A search function to search for players by name or attributes
 - Use an API to add real-time statistics
 
 
