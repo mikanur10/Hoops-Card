@@ -9,6 +9,7 @@
     - [ERD Model](#erd-model)
 - [ERD Model](#erd-model)
 - [Data-Architecture](#data-architecture)
+- [Dependency-Library](#dependency-library)
 - [Post-MVP](#post-mvp)
 
 
@@ -148,6 +149,18 @@ client
 
 
 ```
+
+## Dependency-Library
+
+|     Library      | Description                                |
+| :--------------: | :----------------------------------------- |
+|      React       | Framework that the front-end client side is built on |
+|  React Router	   | Dependency that allows for linking and routing components |
+| React Bootstrap	 | Library that has built-out UI React Components |
+|     PostgreSQL	    | Database that the back-end of the app is built on |
+|     Ruby	    | Back-end language that will be used |
+|     Rails		    | Back-end MVC framework that Ruby will be built on |
+
 
 ## Post-MVP
 
