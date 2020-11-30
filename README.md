@@ -106,8 +106,14 @@
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| Create homepage   |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
+| user functionality |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| login page |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| registration page |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| posts feed |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| backend crud routes |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| front end crud |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| CSS |    H     |     3 hrs      |     1 hrs     |     TBD     |
 | TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
 
 ## ERD Model
@@ -142,8 +148,6 @@ client
 
 
 ```
-
-## Dependencies
 
 ## Post-MVP
 
