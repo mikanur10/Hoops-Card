@@ -104,6 +104,12 @@
 
 ## Timeframe Estimates 
 
+| Task                | Priority | Estimated Time | Time Invested | Actual Time |
+| ------------------- | :------: | :------------: | :-----------: | :---------: |
+| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
+
 ## ERD Model
 
 ![imageAlt](https://i.imgur.com/NXRwn4O.png)
@@ -136,6 +142,17 @@ client
 
 
 ```
+
+## Dependencies
+
+## Post-MVP
+
+- A unified feed of all users posts
+- A search function to search for players ny name or attributes
+- Use an API to add real-time statistics
+
+
+
 
 
 
