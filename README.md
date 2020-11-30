@@ -3,12 +3,12 @@
 - [MVP](#mvp)
   - [Client (Front End)](#client-front-end)
     - [Wireframes](#wireframes)
-    - [Component Tree](#component-tree)
     - [Component Hierarchy](#component-hierarchy)
-    - [Component Breakdown](#component-breakdown)
     - [Time Estimates](#time-estimates)
   - [Server (Back End)](#server-back-end)
     - [ERD Model](#erd-model)
+- [ERD Model](#erd-model)
+- [Data-Architecture](#data-architecture)
 - [Post-MVP](#post-mvp)
 
 
@@ -99,7 +99,7 @@
 
 ![imageAlt](https://i.imgur.com/Vk6lgzg.png)
 
-## Timeframe Estimates 
+## Time Estimates 
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
