@@ -1,5 +1,6 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :update, :destroy]
+  before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /players
   def index
@@ -10,12 +11,13 @@ class PlayersController < ApplicationController
 
   # GET /players/1
   def show
-    render json: @player
+    render json: @player, include: :skills
   end
 
   # POST /players
   def create
     @player = Player.new(player_params)
+    @player.user = @current_user
 
     if @player.save
       render json: @player, status: :created, location: @player
@@ -36,6 +38,13 @@ class PlayersController < ApplicationController
   # DELETE /players/1
   def destroy
     @player.destroy
+  end
+
+  def add_skill
+    @skill = Skill.find(params[:skill_id])
+    @player.skills << @skill
+
+ render json: @player, include: :skills
   end
 
   private

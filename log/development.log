@@ -653,3 +653,1573 @@ Migrating to RenameTable (20201201163454)
   [1m[36mPlayer::HABTM_Skills Create (0.4ms)[0m  [1m[32mINSERT INTO "players_skills" ("player_id", "skill_id") VALUES ($1, $2)[0m  [["player_id", 2], ["skill_id", 26]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "players"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (73.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Hoops_Card_development"[0m
+  [1m[35m (55.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Hoops_Card_test"[0m
+  [1m[35m (73.4ms)[0m  [1m[35mCREATE DATABASE "Hoops_Card_development" ENCODING = 'unicode'[0m
+  [1m[35m (77.7ms)[0m  [1m[35mCREATE DATABASE "Hoops_Card_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "players" CASCADE[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying, "img" character varying, "position" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_players_on_user_id" ON "players"  ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "players_skills" CASCADE[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "players_skills" ("player_id" bigint NOT NULL, "skill_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "skills" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "skills" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "players" ADD CONSTRAINT "fk_rails_224cac07ce"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201201163454)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20201130214517),
+(20201201143343),
+(20201201143843),
+(20201201143930),
+(20201201162049),
+(20201201163001),
+(20201201163214);
+
+[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-01 16:54:02.807140"], ["updated_at", "2020-12-01 16:54:02.807140"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "6a6d0ed780f03419d4bb39f739f6b4f6c94faa8f"], ["created_at", "2020-12-01 16:54:02.815467"], ["updated_at", "2020-12-01 16:54:02.815467"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "players" CASCADE[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying, "img" character varying, "position" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_players_on_user_id" ON "players"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "players_skills" CASCADE[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "players_skills" ("player_id" bigint NOT NULL, "skill_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "skills" CASCADE[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "skills" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "players" ADD CONSTRAINT "fk_rails_224cac07ce"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201201163454)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20201130214517),
+(20201201143343),
+(20201201143843),
+(20201201143930),
+(20201201162049),
+(20201201163001),
+(20201201163214);
+
+[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-01 16:54:02.881657"], ["updated_at", "2020-12-01 16:54:02.881657"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-12-01 16:54:02.894261"], ["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "6a6d0ed780f03419d4bb39f739f6b4f6c94faa8f"], ["created_at", "2020-12-01 16:54:02.899847"], ["updated_at", "2020-12-01 16:54:02.899847"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  [1m[36mSkill Load (0.7ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "admin"], ["email", "admin@email.com"], ["password_digest", "$2a$12$sqt8lQUoRLu9cuXNyZXleeTGvehiC96OGynXSjXdEYIk/oqi3XM.i"], ["created_at", "2020-12-01 16:54:03.217069"], ["updated_at", "2020-12-01 16:54:03.217069"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.6ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Fast"], ["created_at", "2020-12-01 16:54:03.234907"], ["updated_at", "2020-12-01 16:54:03.234907"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Explosive"], ["created_at", "2020-12-01 16:54:03.240914"], ["updated_at", "2020-12-01 16:54:03.240914"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Long-Range"], ["created_at", "2020-12-01 16:54:03.247119"], ["updated_at", "2020-12-01 16:54:03.247119"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Mid-Range"], ["created_at", "2020-12-01 16:54:03.253858"], ["updated_at", "2020-12-01 16:54:03.253858"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Post-Player"], ["created_at", "2020-12-01 16:54:03.259045"], ["updated_at", "2020-12-01 16:54:03.259045"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Long"], ["created_at", "2020-12-01 16:54:03.263848"], ["updated_at", "2020-12-01 16:54:03.263848"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Short"], ["created_at", "2020-12-01 16:54:03.268577"], ["updated_at", "2020-12-01 16:54:03.268577"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.2ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Handles"], ["created_at", "2020-12-01 16:54:03.273198"], ["updated_at", "2020-12-01 16:54:03.273198"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Footwork"], ["created_at", "2020-12-01 16:54:03.277117"], ["updated_at", "2020-12-01 16:54:03.277117"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.2ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Court Vision"], ["created_at", "2020-12-01 16:54:03.280384"], ["updated_at", "2020-12-01 16:54:03.280384"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.2ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Leader"], ["created_at", "2020-12-01 16:54:03.283851"], ["updated_at", "2020-12-01 16:54:03.283851"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.6ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Play Maker"], ["created_at", "2020-12-01 16:54:03.287281"], ["updated_at", "2020-12-01 16:54:03.287281"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Gritty"], ["created_at", "2020-12-01 16:54:03.291117"], ["updated_at", "2020-12-01 16:54:03.291117"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.2ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Powerful"], ["created_at", "2020-12-01 16:54:03.295408"], ["updated_at", "2020-12-01 16:54:03.295408"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Clutch"], ["created_at", "2020-12-01 16:54:03.298925"], ["updated_at", "2020-12-01 16:54:03.298925"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (0.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Stephen Curry"], ["user_id", 1], ["created_at", "2020-12-01 16:54:03.320142"], ["updated_at", "2020-12-01 16:54:03.320142"]]
+  [1m[36mPlayer::HABTM_Skills Create (0.2ms)[0m  [1m[32mINSERT INTO "players_skills" ("player_id", "skill_id") VALUES ($1, $2)[0m  [["player_id", 1], ["skill_id", 3]]
+  [1m[36mPlayer::HABTM_Skills Create (0.1ms)[0m  [1m[32mINSERT INTO "players_skills" ("player_id", "skill_id") VALUES ($1, $2)[0m  [["player_id", 1], ["skill_id", 8]]
+  [1m[36mPlayer::HABTM_Skills Create (0.1ms)[0m  [1m[32mINSERT INTO "players_skills" ("player_id", "skill_id") VALUES ($1, $2)[0m  [["player_id", 1], ["skill_id", 12]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (0.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "LeBron James"], ["user_id", 1], ["created_at", "2020-12-01 16:54:03.329721"], ["updated_at", "2020-12-01 16:54:03.329721"]]
+  [1m[36mPlayer::HABTM_Skills Create (0.1ms)[0m  [1m[32mINSERT INTO "players_skills" ("player_id", "skill_id") VALUES ($1, $2)[0m  [["player_id", 2], ["skill_id", 2]]
+  [1m[36mPlayer::HABTM_Skills Create (0.2ms)[0m  [1m[32mINSERT INTO "players_skills" ("player_id", "skill_id") VALUES ($1, $2)[0m  [["player_id", 2], ["skill_id", 10]]
+  [1m[36mPlayer::HABTM_Skills Create (0.1ms)[0m  [1m[32mINSERT INTO "players_skills" ("player_id", "skill_id") VALUES ($1, $2)[0m  [["player_id", 2], ["skill_id", 11]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "players"[0m
+Started GET "/players" for ::1 at 2020-12-01 11:57:40 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#index as */*
+  Parameters: {"breed"=>"Daniel", "player"=>{}}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:9:in `index'
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 3.9ms | Allocations: 4859)
+
+
+Started GET "/players/2" for ::1 at 2020-12-01 11:57:53 -0500
+Processing by PlayersController#show as */*
+  Parameters: {"breed"=>"Daniel", "id"=>"2", "player"=>{}}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:53:in `set_player'
+  [1m[36mSkill Load (0.9ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "players_skills" ON "skills"."id" = "players_skills"."skill_id" WHERE "players_skills"."player_id" = $1[0m  [["player_id", 2]]
+  ↳ app/controllers/players_controller.rb:14:in `show'
+Completed 200 OK in 36ms (Views: 25.3ms | ActiveRecord: 4.1ms | Allocations: 10926)
+
+
+Started GET "/players/2/skills" for ::1 at 2020-12-01 11:58:04 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/players/2/skills"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/players/skills" for ::1 at 2020-12-01 11:58:42 -0500
+Processing by PlayersController#show as */*
+  Parameters: {"breed"=>"Daniel", "id"=>"skills", "player"=>{}}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:53:in `set_player'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms | Allocations: 639)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Player with 'id'=skills):
+  
+app/controllers/players_controller.rb:53:in `set_player'
+Started GET "/skills" for ::1 at 2020-12-01 11:58:57 -0500
+Processing by SkillsController#index as */*
+  Parameters: {"breed"=>"Daniel", "skill"=>{}}
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/controllers/skills_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.3ms | Allocations: 2265)
+
+
+Started GET "/players" for ::1 at 2020-12-01 11:59:18 -0500
+Processing by PlayersController#index as */*
+  Parameters: {"breed"=>"Daniel", "player"=>{}}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:9:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 1082)
+
+
+Started GET "/players/1" for ::1 at 2020-12-01 11:59:24 -0500
+Processing by PlayersController#show as */*
+  Parameters: {"breed"=>"Daniel", "id"=>"1", "player"=>{}}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:53:in `set_player'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "players_skills" ON "skills"."id" = "players_skills"."skill_id" WHERE "players_skills"."player_id" = $1[0m  [["player_id", 1]]
+  ↳ app/controllers/players_controller.rb:14:in `show'
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.6ms | Allocations: 2158)
+
+
+Started GET "/players/skills/1" for ::1 at 2020-12-01 11:59:36 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/players/skills/1"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/players/1/skills" for ::1 at 2020-12-01 11:59:45 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/players/1/skills"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/players/1/players/1" for ::1 at 2020-12-01 12:00:31 -0500
+Processing by PlayersController#add_skill as */*
+  Parameters: {"breed"=>"Daniel", "skill_id"=>"1", "id"=>"1", "player"=>{}}
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:44:in `add_skill'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms | Allocations: 1253)
+
+
+  
+NoMethodError (undefined method `skills' for nil:NilClass):
+  
+app/controllers/players_controller.rb:45:in `add_skill'
+Started GET "/users" for ::1 at 2020-12-01 12:00:47 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/players" for ::1 at 2020-12-01 12:00:59 -0500
+Processing by PlayersController#index as */*
+  Parameters: {"breed"=>"Daniel", "player"=>{}}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:9:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 1081)
+
+
+Started GET "/players/1" for ::1 at 2020-12-01 12:01:07 -0500
+Processing by PlayersController#show as */*
+  Parameters: {"breed"=>"Daniel", "id"=>"1", "player"=>{}}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:53:in `set_player'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "players_skills" ON "skills"."id" = "players_skills"."skill_id" WHERE "players_skills"."player_id" = $1[0m  [["player_id", 1]]
+  ↳ app/controllers/players_controller.rb:14:in `show'
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.6ms | Allocations: 2176)
+
+
+Started POST "/players" for ::1 at 2020-12-01 12:02:30 -0500
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "player": {
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    }
+}
+  
+ActionDispatch::Http::Parameters::ParseError (783: unexpected token at '{
+    "player": {
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    }
+}'):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "player": {
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    }
+}
+Started POST "/players" for ::1 at 2020-12-01 12:02:36 -0500
+Processing by PlayersController#create as */*
+  Parameters: {"player"=>{"name"=>"Seth Curry", "img"=>"null", "position"=>"null"}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 122)
+
+
+Started GET "/players" for ::1 at 2020-12-01 12:02:59 -0500
+Processing by PlayersController#index as */*
+  Parameters: {"player"=>{"name"=>"Seth Curry", "img"=>"null", "position"=>"null"}}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:9:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 1062)
+
+
+Started POST "/players" for ::1 at 2020-12-01 12:03:29 -0500
+Processing by PlayersController#create as */*
+  Parameters: {"player"=>{"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>"1"}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 119)
+
+
+Started POST "/players" for ::1 at 2020-12-01 12:03:34 -0500
+Processing by PlayersController#create as */*
+  Parameters: {"player"=>{"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>1}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 119)
+
+
+Started POST "/players" for ::1 at 2020-12-01 12:03:44 -0500
+Processing by PlayersController#create as */*
+  Parameters: {"player"=>{"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>1}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 119)
+
+
+Started POST "/players" for ::1 at 2020-12-01 12:03:48 -0500
+Processing by PlayersController#create as */*
+  Parameters: {"players"=>{"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>1}, "player"=>{}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 119)
+
+
+Started GET "/players" for ::1 at 2020-12-01 12:04:04 -0500
+Processing by PlayersController#index as */*
+  Parameters: {"players"=>{"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>1}, "player"=>{}}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:9:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 1063)
+
+
+Started POST "/players" for ::1 at 2020-12-01 12:04:55 -0500
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>1, "player"=>{"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>1}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 119)
+
+
+Started POST "/players" for ::1 at 2020-12-01 12:06:39 -0500
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>1, "player"=>{"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>1}}
+Completed 422 Unprocessable Entity in 34ms (Views: 0.1ms | ActiveRecord: 4.9ms | Allocations: 7925)
+
+
+Started POST "/players" for ::1 at 2020-12-01 12:06:52 -0500
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>"1", "player"=>{"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>"1"}}
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 681)
+
+
+Started GET "/players" for ::1 at 2020-12-01 12:07:01 -0500
+Processing by PlayersController#index as */*
+  Parameters: {"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>"1", "player"=>{"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>"1"}}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:9:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.5ms | Allocations: 1103)
+
+
+Started POST "/players" for ::1 at 2020-12-01 12:07:10 -0500
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>"1", "player"=>{"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user_id"=>"1"}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 681)
+
+
+Started POST "/players" for ::1 at 2020-12-01 12:07:21 -0500
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user"=>"1", "player"=>{"name"=>"Seth Curry", "img"=>"null", "position"=>"null"}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 669)
+
+
+Started POST "/players" for ::1 at 2020-12-01 12:07:26 -0500
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Seth Curry", "img"=>"null", "position"=>"null", "user"=>1, "player"=>{"name"=>"Seth Curry", "img"=>"null", "position"=>"null"}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 667)
+
+
+Started POST "/players" for ::1 at 2020-12-01 12:07:43 -0500
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+    "user": "admin"
+}
+  
+ActionDispatch::Http::Parameters::ParseError (783: unexpected token at '{
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+    "user": "admin"
+}'):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+    "user": "admin"
+}
+Started POST "/players" for ::1 at 2020-12-01 12:08:00 -0500
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "user": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}
+  
+ActionDispatch::Http::Parameters::ParseError (783: unexpected token at '{
+    "user": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}'):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "user": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}
+Started POST "/players" for ::1 at 2020-12-01 12:08:09 -0500
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}
+  
+ActionDispatch::Http::Parameters::ParseError (783: unexpected token at '{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}'):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}
+Started DELETE "/players/1" for ::1 at 2020-12-01 12:10:35 -0500
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}
+  
+ActionDispatch::Http::Parameters::ParseError (783: unexpected token at '{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}'):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}
+Started GET "/players/1" for ::1 at 2020-12-01 12:10:50 -0500
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}
+  
+ActionDispatch::Http::Parameters::ParseError (783: unexpected token at '{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}'):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}
+Started GET "/players" for ::1 at 2020-12-01 12:10:57 -0500
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}
+  
+ActionDispatch::Http::Parameters::ParseError (783: unexpected token at '{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}'):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}
+Started GET "/players" for ::1 at 2020-12-01 12:11:07 -0500
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}
+  
+ActionDispatch::Http::Parameters::ParseError (783: unexpected token at '{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}'):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "username": "admin"
+    "name": "Seth Curry",
+    "img": "null",
+    "position": "null",
+    "user_id": "1"
+}
+Started GET "/players" for ::1 at 2020-12-01 12:11:30 -0500
+Processing by PlayersController#index as */*
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:9:in `index'
+Completed 200 OK in 15ms (Views: 8.2ms | ActiveRecord: 3.0ms | Allocations: 6641)
+
+
+Started GET "/players/1" for ::1 at 2020-12-01 12:11:35 -0500
+Processing by PlayersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:53:in `set_player'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "players_skills" ON "skills"."id" = "players_skills"."skill_id" WHERE "players_skills"."player_id" = $1[0m  [["player_id", 1]]
+  ↳ app/controllers/players_controller.rb:14:in `show'
+Completed 200 OK in 15ms (Views: 9.7ms | ActiveRecord: 4.2ms | Allocations: 6489)
+
+
+Started DELETE "/players/1" for ::1 at 2020-12-01 12:11:41 -0500
+Processing by PlayersController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:53:in `set_player'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/players_controller.rb:40:in `destroy'
+  [1m[36mPlayer::HABTM_Skills Destroy (2.0ms)[0m  [1m[31mDELETE FROM "players_skills" WHERE "players_skills"."player_id" = $1[0m  [["player_id", 1]]
+  ↳ app/controllers/players_controller.rb:40:in `destroy'
+  [1m[36mPlayer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "players" WHERE "players"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/players_controller.rb:40:in `destroy'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/players_controller.rb:40:in `destroy'
+Completed 204 No Content in 13ms (ActiveRecord: 5.5ms | Allocations: 3349)
+
+
+Started GET "/players/2" for ::1 at 2020-12-01 12:11:58 -0500
+Processing by PlayersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:53:in `set_player'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "players_skills" ON "skills"."id" = "players_skills"."skill_id" WHERE "players_skills"."player_id" = $1[0m  [["player_id", 2]]
+  ↳ app/controllers/players_controller.rb:14:in `show'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.5ms | Allocations: 2150)
+
+
+Started PUT "/players/2" for ::1 at 2020-12-01 12:12:30 -0500
+Processing by PlayersController#update as */*
+  Parameters: {"name"=>"lasean", "id"=>"2", "player"=>{"name"=>"lasean"}}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:53:in `set_player'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/players_controller.rb:31:in `update'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:31:in `update'
+  [1m[36mPlayer Update (0.6ms)[0m  [1m[33mUPDATE "players" SET "name" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["name", "lasean"], ["updated_at", "2020-12-01 17:12:30.688474"], ["id", 2]]
+  ↳ app/controllers/players_controller.rb:31:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/players_controller.rb:31:in `update'
+Completed 200 OK in 26ms (Views: 0.4ms | ActiveRecord: 5.3ms | Allocations: 10217)
+
+
+Started POST "/players/" for ::1 at 2020-12-01 12:13:27 -0500
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "name": "mika",
+    "user_id": 1,
+    "img": "null",
+    "position": "null",
+}
+  
+ActionDispatch::Http::Parameters::ParseError (783: unexpected token at '{
+    "name": "mika",
+    "user_id": 1,
+    "img": "null",
+    "position": "null",
+}'):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "name": "mika",
+    "user_id": 1,
+    "img": "null",
+    "position": "null",
+}
+Started POST "/players/" for ::1 at 2020-12-01 12:13:34 -0500
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "name": "mika",
+    "user_id": "1",
+    "img": "null",
+    "position": "null",
+}
+  
+ActionDispatch::Http::Parameters::ParseError (783: unexpected token at '{
+    "name": "mika",
+    "user_id": "1",
+    "img": "null",
+    "position": "null",
+}'):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "name": "mika",
+    "user_id": "1",
+    "img": "null",
+    "position": "null",
+}
+Started POST "/players/" for ::1 at 2020-12-01 12:13:39 -0500
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"mika", "user_id"=>"1", "img"=>"null", "position"=>"null", "player"=>{"name"=>"mika", "img"=>"null", "position"=>"null", "user_id"=>"1"}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 728)
+
+
+Started POST "/players/" for ::1 at 2020-12-01 12:14:59 -0500
+Error occurred while parsing request parameters.
+Contents:
+
+"player": {
+    {
+    "name": "mika",
+    "user_id": "1",
+    "img": "null",
+    "position": "null"
+}
+}
+  
+ActionDispatch::Http::Parameters::ParseError (783: unexpected token at ': {
+    {
+    "name": "mika",
+    "user_id": "1",
+    "img": "null",
+    "position": "null"
+}
+}'):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3.4) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+"player": {
+    {
+    "name": "mika",
+    "user_id": "1",
+    "img": "null",
+    "position": "null"
+}
+}
+Started POST "/players/" for ::1 at 2020-12-01 12:16:27 -0500
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"mika", "user_id"=>"1", "img"=>"null", "position"=>"null", "player"=>{"name"=>"mika", "img"=>"null", "position"=>"null", "user_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/players_controller.rb:22:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:22:in `create'
+  [1m[36mPlayer Create (0.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "img", "position", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "mika"], ["img", "null"], ["position", "null"], ["user_id", 1], ["created_at", "2020-12-01 17:16:27.703113"], ["updated_at", "2020-12-01 17:16:27.703113"]]
+  ↳ app/controllers/players_controller.rb:22:in `create'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/players_controller.rb:22:in `create'
+Completed 201 Created in 28ms (Views: 0.6ms | ActiveRecord: 7.5ms | Allocations: 11924)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (46.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Hoops_Card_development"[0m
+  [1m[35m (38.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Hoops_Card_test"[0m
+  [1m[35m (152.2ms)[0m  [1m[35mCREATE DATABASE "Hoops_Card_development" ENCODING = 'unicode'[0m
+  [1m[35m (52.7ms)[0m  [1m[35mCREATE DATABASE "Hoops_Card_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "players" CASCADE[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying, "img" character varying, "position" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_players_on_user_id" ON "players"  ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "players_skills" CASCADE[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "players_skills" ("player_id" bigint NOT NULL, "skill_id" bigint NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "skills" CASCADE[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "skills" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "players" ADD CONSTRAINT "fk_rails_224cac07ce"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201201163454)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20201130214517),
+(20201201143343),
+(20201201143843),
+(20201201143930),
+(20201201162049),
+(20201201163001),
+(20201201163214);
+
+[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-01 17:17:25.267106"], ["updated_at", "2020-12-01 17:17:25.267106"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "6a6d0ed780f03419d4bb39f739f6b4f6c94faa8f"], ["created_at", "2020-12-01 17:17:25.275910"], ["updated_at", "2020-12-01 17:17:25.275910"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "players" CASCADE[0m
+  [1m[35m (13.8ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying, "img" character varying, "position" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_players_on_user_id" ON "players"  ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "players_skills" CASCADE[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "players_skills" ("player_id" bigint NOT NULL, "skill_id" bigint NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "skills" CASCADE[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "skills" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "players" ADD CONSTRAINT "fk_rails_224cac07ce"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201201163454)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20201130214517),
+(20201201143343),
+(20201201143843),
+(20201201143930),
+(20201201162049),
+(20201201163001),
+(20201201163214);
+
+[0m
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-01 17:17:25.387869"], ["updated_at", "2020-12-01 17:17:25.387869"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-12-01 17:17:25.402163"], ["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "6a6d0ed780f03419d4bb39f739f6b4f6c94faa8f"], ["created_at", "2020-12-01 17:17:25.410571"], ["updated_at", "2020-12-01 17:17:25.410571"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "admin"], ["email", "admin@email.com"], ["password_digest", "$2a$12$GMdRF9.R6.60vxwEkrPlcuywnuhI56zqqjphR5bqvS.vj2imtlgO."], ["created_at", "2020-12-01 17:17:25.737957"], ["updated_at", "2020-12-01 17:17:25.737957"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.5ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Fast"], ["created_at", "2020-12-01 17:17:25.751308"], ["updated_at", "2020-12-01 17:17:25.751308"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Explosive"], ["created_at", "2020-12-01 17:17:25.755668"], ["updated_at", "2020-12-01 17:17:25.755668"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Long-Range"], ["created_at", "2020-12-01 17:17:25.759582"], ["updated_at", "2020-12-01 17:17:25.759582"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Mid-Range"], ["created_at", "2020-12-01 17:17:25.763631"], ["updated_at", "2020-12-01 17:17:25.763631"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Post-Player"], ["created_at", "2020-12-01 17:17:25.767641"], ["updated_at", "2020-12-01 17:17:25.767641"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Long"], ["created_at", "2020-12-01 17:17:25.771521"], ["updated_at", "2020-12-01 17:17:25.771521"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.7ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Short"], ["created_at", "2020-12-01 17:17:25.775597"], ["updated_at", "2020-12-01 17:17:25.775597"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.7ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Handles"], ["created_at", "2020-12-01 17:17:25.780945"], ["updated_at", "2020-12-01 17:17:25.780945"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.6ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Footwork"], ["created_at", "2020-12-01 17:17:25.786137"], ["updated_at", "2020-12-01 17:17:25.786137"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Court Vision"], ["created_at", "2020-12-01 17:17:25.790336"], ["updated_at", "2020-12-01 17:17:25.790336"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Leader"], ["created_at", "2020-12-01 17:17:25.794732"], ["updated_at", "2020-12-01 17:17:25.794732"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Play Maker"], ["created_at", "2020-12-01 17:17:25.799330"], ["updated_at", "2020-12-01 17:17:25.799330"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Gritty"], ["created_at", "2020-12-01 17:17:25.803520"], ["updated_at", "2020-12-01 17:17:25.803520"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Powerful"], ["created_at", "2020-12-01 17:17:25.807614"], ["updated_at", "2020-12-01 17:17:25.807614"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Clutch"], ["created_at", "2020-12-01 17:17:25.811873"], ["updated_at", "2020-12-01 17:17:25.811873"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Stephen Curry"], ["user_id", 1], ["created_at", "2020-12-01 17:17:25.845656"], ["updated_at", "2020-12-01 17:17:25.845656"]]
+  [1m[36mPlayer::HABTM_Skills Create (0.5ms)[0m  [1m[32mINSERT INTO "players_skills" ("player_id", "skill_id") VALUES ($1, $2)[0m  [["player_id", 1], ["skill_id", 3]]
+  [1m[36mPlayer::HABTM_Skills Create (0.2ms)[0m  [1m[32mINSERT INTO "players_skills" ("player_id", "skill_id") VALUES ($1, $2)[0m  [["player_id", 1], ["skill_id", 8]]
+  [1m[36mPlayer::HABTM_Skills Create (0.2ms)[0m  [1m[32mINSERT INTO "players_skills" ("player_id", "skill_id") VALUES ($1, $2)[0m  [["player_id", 1], ["skill_id", 12]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (0.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "LeBron James"], ["user_id", 1], ["created_at", "2020-12-01 17:17:25.859143"], ["updated_at", "2020-12-01 17:17:25.859143"]]
+  [1m[36mPlayer::HABTM_Skills Create (0.2ms)[0m  [1m[32mINSERT INTO "players_skills" ("player_id", "skill_id") VALUES ($1, $2)[0m  [["player_id", 2], ["skill_id", 2]]
+  [1m[36mPlayer::HABTM_Skills Create (0.2ms)[0m  [1m[32mINSERT INTO "players_skills" ("player_id", "skill_id") VALUES ($1, $2)[0m  [["player_id", 2], ["skill_id", 10]]
+  [1m[36mPlayer::HABTM_Skills Create (0.2ms)[0m  [1m[32mINSERT INTO "players_skills" ("player_id", "skill_id") VALUES ($1, $2)[0m  [["player_id", 2], ["skill_id", 11]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "players"[0m
