@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :update, :destroy]
   before_action :authorize_request, only: [:create, :update, :destroy]
+  before_action :set_user_player, only: [:update, :destroy]
 
   # GET /players
   def index
@@ -51,6 +52,10 @@ class PlayersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_player
       @player = Player.find(params[:id])
+    end
+
+    def set_user_player
+      @player = @current_user.players.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

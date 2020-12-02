@@ -30,7 +30,7 @@ export default function PlayerDetail(props) {
   return (
     <div>
       <h2>{player?.name}</h2>
-      <h3>{player?.img}</h3>
+      <img src={player?.img} alt="player picture"></img>
       <h3>{player?.position}</h3>
       {player?.skills.map(skill => (
         <p key={skill.id}>{skill.name}</p>

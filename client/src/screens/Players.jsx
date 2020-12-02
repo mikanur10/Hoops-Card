@@ -9,6 +9,8 @@ export default function Players(props) {
         props.players.map(player => (
           <React.Fragment key={player.id}>
             <Link to={`/players/${player.id}`}><p>{player.name}</p></Link>
+            <img src={player.img} alt="player image"></img>
+            <p>{player.position}</p>
             {
               player.user_id === props.currentUser?.id &&
               <>

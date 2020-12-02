@@ -50,17 +50,14 @@ function App() {
       <Switch>
 
         <Route path='/login'>
-          {/* login */}
           <Login handleLogin={handleLogin} />
         </Route>
 
         <Route path='/register'>
-          {/* register */}
           <Register handleRegister={handleRegister} />
         </Route>
 
         <Route path='/'>
-          {/* container */}
           <MainContainer currentUser={currentUser} />
         </Route>
 
