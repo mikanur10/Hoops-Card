@@ -29,7 +29,9 @@ export default function PlayerDetail(props) {
 
   return (
     <div>
-      <h3>{player?.name}</h3>
+      <h2>{player?.name}</h2>
+      <h3>{player?.img}</h3>
+      <h3>{player?.position}</h3>
       {player?.skills.map(skill => (
         <p key={skill.id}>{skill.name}</p>
       ))}
