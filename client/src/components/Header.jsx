@@ -5,7 +5,7 @@ export default function Header(props) {
   const { currentUser, handleLogout } = props;
   return (
     <div>
-      <h1>HoopsCard</h1>
+      <Link to='/players'>HoopsCard</Link>
       {
         currentUser ?
           <>

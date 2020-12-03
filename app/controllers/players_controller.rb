@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-  before_action :set_player, only: [:show, :update, :destroy]
+  before_action :set_player, only: [:show, :update, :destroy, :add_skill]
   before_action :authorize_request, only: [:create, :update, :destroy]
   before_action :set_user_player, only: [:update, :destroy]
 
