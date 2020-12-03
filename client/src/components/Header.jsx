@@ -13,7 +13,7 @@ export default function Header(props) {
             <button onClick={handleLogout}>Logout</button>
           </>
           :
-          <Link to='/login'>Login/Register</Link>
+          <Link to='/login'>Login</Link>
       }
       <hr />
       {
