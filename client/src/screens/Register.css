@@ -1,0 +1,27 @@
+.registration-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.register-form {
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+}
+
+.register-form-container {
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+height: 90%;
+align-content: center;
+}
+
+.register-title {
+ align-self: center;
+}
+
+.register-image {
+  box-shadow: black;
+}
