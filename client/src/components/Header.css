@@ -5,3 +5,11 @@
   margin: auto;
   width: 90%
 }
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 30%;
+}

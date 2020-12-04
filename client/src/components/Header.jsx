@@ -9,7 +9,7 @@ export default function Header(props) {
       <div>
         <h1>HoopsCard</h1>
       </div>
-      <div>
+      <div className="nav-links">
         {
           currentUser &&
           <>
