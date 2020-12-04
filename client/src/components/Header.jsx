@@ -8,7 +8,7 @@ export default function Header(props) {
     <div className="nav-main-container">
       <div className="navigation">
         <div>
-          <h1 className="logo">HoopsCard</h1>
+          <Link to='/' className="logo"><h1>HoopsCard</h1></Link>
         </div>
         <div className="nav-links">
           {
