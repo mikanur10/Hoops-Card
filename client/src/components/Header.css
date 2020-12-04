@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
 .navigation {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: auto;
-  width: 90%
+  width: 90%;
+  font-family: 'Fredericka the Great', cursive;
 }
 
 .nav-links {
@@ -12,4 +15,23 @@
   align-items: center;
   justify-content: space-between;
   width: 30%;
+  font-family: 'Fredericka the Great', cursive;
+}
+
+.logout-button {
+  font-family: 'Fredericka the Great', cursive;
+}
+
+.players-link {
+  text-decoration: none;
+  color: black
+}
+
+.nav-main-container {
+  background-color: rgba(196, 196, 196, 0.29);
+}
+
+.login, .register {
+  text-decoration: none;
+  color: black
 }

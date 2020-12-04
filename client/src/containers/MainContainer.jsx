@@ -6,6 +6,7 @@ import PlayerCreate from '../screens/PlayerCreate';
 import PlayerDetail from '../screens/PlayerDetail';
 import PlayerEdit from '../screens/PlayerEdit';
 import Players from '../screens/Players';
+import HomePage from '../screens/HomePage';
 import { getAllSkills } from '../services/skills'
 import { destroyPlayer, getAllPlayers, postPlayer, putPlayer } from '../services/players'
 
@@ -68,6 +69,9 @@ export default function MainContainer(props) {
           handleDelete={handleDelete}
           currentUser={props.currentUser}
         />
+      </Route>
+      <Route path='/'>
+        <HomePage />
       </Route>
     </Switch>
   )
