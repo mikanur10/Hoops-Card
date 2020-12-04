@@ -5,28 +5,31 @@ import './Header.css'
 export default function Header(props) {
   const { currentUser, handleLogout } = props;
   return (
-    <div>
-      <h1>HoopsCard</h1>
-      {
-        currentUser ?
+    <div className="navigation">
+      <div>
+        <h1>HoopsCard</h1>
+      </div>
+      <div>
+        {
+          currentUser &&
           <>
-            <p>{currentUser.username}</p>
-            <button onClick={handleLogout}>Logout</button>
+            <Link to='/players'>Players</Link>
           </>
-          :
-          <>
-            <Link to='/login'>Login</Link>
-            <br />
-            <Link to='/register'>Register</Link>
-          </>
-      }
-      <hr />
-      {
-        currentUser &&
-        <>
-          <Link to='/players'>Players</Link>
-        </>
-      }
+        }
+        {
+          currentUser ?
+            <>
+              <p>{currentUser.username}</p>
+              <button onClick={handleLogout}>Logout</button>
+            </>
+            :
+            <>
+              <Link to='/login'>Login</Link>
+              <br />
+              <Link to='/register'>Register</Link>
+            </>
+        }
+      </div>
     </div>
   )
 }
