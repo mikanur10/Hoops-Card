@@ -4569,3 +4569,115 @@ Processing by PlayersController#index as HTML
 Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 1084)
 
 
+Started POST "/auth/login" for ::1 at 2020-12-03 17:03:03 -0500
+Processing by AuthenticationController#login as HTML
+  Parameters: {"authentication"=>{"username"=>"mikanur10", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mikanur10"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 243ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1037)
+
+
+Started GET "/skills" for ::1 at 2020-12-03 17:03:03 -0500
+Processing by SkillsController#index as HTML
+Started GET "/players" for ::1 at 2020-12-03 17:03:03 -0500
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/controllers/skills_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 1.2ms | Allocations: 2822)
+
+
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:10:in `index'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.7ms | Allocations: 1158)
+
+
+Started POST "/players" for ::1 at 2020-12-03 17:03:28 -0500
+Processing by PlayersController#create as HTML
+  Parameters: {"player"=>{"name"=>"test", "img"=>"https://i.imgur.com/Ur1MoDf.png", "position"=>"test"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/players_controller.rb:23:in `create'
+  [1m[36mPlayer Create (1.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "img", "position", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "test"], ["img", "https://i.imgur.com/Ur1MoDf.png"], ["position", "test"], ["user_id", 2], ["created_at", "2020-12-03 22:03:28.200562"], ["updated_at", "2020-12-03 22:03:28.200562"]]
+  ↳ app/controllers/players_controller.rb:23:in `create'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/players_controller.rb:23:in `create'
+Completed 201 Created in 13ms (Views: 0.9ms | ActiveRecord: 4.2ms | Allocations: 3583)
+
+
+Started PUT "/players/6" for ::1 at 2020-12-03 17:03:37 -0500
+Processing by PlayersController#update as HTML
+  Parameters: {"player"=>{"name"=>"change", "img"=>"https://i.imgur.com/Ur1MoDf.png", "position"=>"test"}, "id"=>"6"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:54:in `set_player'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."user_id" = $1 AND "players"."id" = $2 LIMIT $3[0m  [["user_id", 2], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:58:in `set_user_player'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/players_controller.rb:32:in `update'
+  [1m[36mPlayer Update (0.7ms)[0m  [1m[33mUPDATE "players" SET "name" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["name", "change"], ["updated_at", "2020-12-03 22:03:37.790097"], ["id", 6]]
+  ↳ app/controllers/players_controller.rb:32:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/players_controller.rb:32:in `update'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 2.5ms | Allocations: 4802)
+
+
+Started GET "/players/6" for ::1 at 2020-12-03 17:03:43 -0500
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:54:in `set_player'
+  [1m[36mSkill Load (0.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "players_skills" ON "skills"."id" = "players_skills"."skill_id" WHERE "players_skills"."player_id" = $1[0m  [["player_id", 6]]
+  ↳ app/controllers/players_controller.rb:15:in `show'
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 1.0ms | Allocations: 1892)
+
+
+Started PUT "/skills/3/players/6" for ::1 at 2020-12-03 17:03:47 -0500
+Processing by PlayersController#add_skill as HTML
+  Parameters: {"skill_id"=>"3", "id"=>"6"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:54:in `set_player'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:45:in `add_skill'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/players_controller.rb:46:in `add_skill'
+  [1m[36mPlayer::HABTM_Skills Create (0.4ms)[0m  [1m[32mINSERT INTO "players_skills" ("player_id", "skill_id") VALUES ($1, $2)[0m  [["player_id", 6], ["skill_id", 3]]
+  ↳ app/controllers/players_controller.rb:46:in `add_skill'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/players_controller.rb:46:in `add_skill'
+  [1m[36mSkill Load (0.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "players_skills" ON "skills"."id" = "players_skills"."skill_id" WHERE "players_skills"."player_id" = $1[0m  [["player_id", 6]]
+  ↳ app/controllers/players_controller.rb:48:in `add_skill'
+Completed 200 OK in 14ms (Views: 2.7ms | ActiveRecord: 2.9ms | Allocations: 5351)
+
+
+Started DELETE "/players/6" for ::1 at 2020-12-03 17:03:51 -0500
+Processing by PlayersController#destroy as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:54:in `set_player'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."user_id" = $1 AND "players"."id" = $2 LIMIT $3[0m  [["user_id", 2], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:58:in `set_user_player'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/players_controller.rb:41:in `destroy'
+  [1m[36mPlayer::HABTM_Skills Destroy (0.5ms)[0m  [1m[31mDELETE FROM "players_skills" WHERE "players_skills"."player_id" = $1[0m  [["player_id", 6]]
+  ↳ app/controllers/players_controller.rb:41:in `destroy'
+  [1m[36mPlayer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "players" WHERE "players"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/players_controller.rb:41:in `destroy'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/players_controller.rb:41:in `destroy'
+Completed 204 No Content in 15ms (ActiveRecord: 3.3ms | Allocations: 4740)
+
+
+Started GET "/players/2" for ::1 at 2020-12-03 17:03:55 -0500
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:54:in `set_player'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "players_skills" ON "skills"."id" = "players_skills"."skill_id" WHERE "players_skills"."player_id" = $1[0m  [["player_id", 2]]
+  ↳ app/controllers/players_controller.rb:15:in `show'
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 1.1ms | Allocations: 2349)
+
+
