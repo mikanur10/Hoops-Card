@@ -35,11 +35,11 @@ opacity: .8;
 .submit-log {
 align-self: center;
 margin-left: 90px;
-border-radius: 8px;
+border-radius: 15px 50px 30px;
 width: 40%;
 height: 30px;
 font-family: 'Fredericka the Great', cursive;
-background-color: deepskyblue;
+background-color: orange;
 }
 
 .register-link {

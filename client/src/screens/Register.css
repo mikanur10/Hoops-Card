@@ -35,9 +35,9 @@ opacity: .8;
 .submit-reg {
 align-self: center;
 margin-left: 154px;
-border-radius: 8px;
+border-radius: 15px 50px 30px;
 width: 40%;
 height: 30px;
 font-family: 'Fredericka the Great', cursive;
-background-color: deepskyblue;
+background-color: orange;
 }
