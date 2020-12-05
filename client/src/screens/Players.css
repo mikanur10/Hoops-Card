@@ -27,15 +27,16 @@
 
 .players-title {
   font-family: 'Fredericka the Great', cursive;
+  font-weight: normal;
 }
 
 .create-button, .delete-button, .edit-button {
   font-family: 'Fredericka the Great', cursive;
 background-color: orange;
-height: 50px;
-width: 150px;
+height: 30px;
+width: 125px;
 margin-top: 20px;
-font-size: 25px;
+font-size: 18px;
 box-shadow: blue;
 border-radius: 15px 50px 30px;
 }

@@ -6111,3 +6111,46 @@ Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.7ms | Allocations: 2371)
 Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 1.2ms | Allocations: 3398)
 
 
+Started POST "/auth/login" for ::1 at 2020-12-05 18:13:22 -0500
+Processing by AuthenticationController#login as HTML
+  Parameters: {"authentication"=>{"username"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 248ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 940)
+
+
+Started GET "/skills" for ::1 at 2020-12-05 18:13:22 -0500
+Processing by SkillsController#index as HTML
+Started GET "/players" for ::1 at 2020-12-05 18:13:22 -0500
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/controllers/skills_controller.rb:8:in `index'
+Processing by PlayersController#index as HTML
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.5ms | Allocations: 2716)
+
+
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.6ms | Allocations: 1298)
+
+
+Started GET "/skills" for ::1 at 2020-12-05 18:15:40 -0500
+Started GET "/auth/verify" for ::1 at 2020-12-05 18:15:40 -0500
+Started GET "/players" for ::1 at 2020-12-05 18:15:40 -0500
+Processing by SkillsController#index as HTML
+  [1m[36mSkill Load (0.8ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+Processing by AuthenticationController#verify as HTML
+  ↳ app/controllers/skills_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.8ms | Allocations: 3133)
+
+
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 3.6ms | Allocations: 2558)
+
+
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:10:in `index'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.8ms | Allocations: 1165)
+
+
