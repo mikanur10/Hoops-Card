@@ -11,7 +11,7 @@ export default function Players(props) {
         props.players.map(player => (
           <div className="player-cards">
             <React.Fragment key={player.id}>
-              <Link to={`/players/${player.id}`}><p>{player.name}</p></Link>
+              <Link to={`/players/${player.id}`}><p className="player-name">{player.name}</p></Link>
               <div>
                 <img src={player.img} width="400px" height="300px" alt="player"></img>
               </div>

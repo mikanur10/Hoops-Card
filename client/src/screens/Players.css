@@ -1,17 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
 .player-cards {
-  border-style: solid;
-  /* display:flex;
-  flex-direction: column; */
-  /* justify-content: center; */
-  /* width: 40%; */
   text-align: center;
   margin-bottom: 50px;
   margin-left: 400px;
   margin-right: 400px;
-  padding: 15px
+  padding: 15px;
+  background-color: gray;
+  opacity: .8;
+  font-family: 'Fredericka the Great', cursive;
 }
 
 .players-container {
   margin: 0 auto;
   text-align:center;
+  background-image: url("https://i.imgur.com/DX3YkZW.jpg");
+  font-size: 30px;
+  color: white;
+}
+
+.player-name {
+  text-decoration: none;
 }
