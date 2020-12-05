@@ -7,7 +7,7 @@
   margin-right: 400px;
   padding: 15px;
   background-color: gray;
-  opacity: .8;
+  opacity: .9;
   font-family: 'Fredericka the Great', cursive;
 }
 
@@ -21,4 +21,20 @@
 
 .player-name {
   text-decoration: none;
+  color: white;
+  border: white solid
+}
+
+.players-title {
+  font-family: 'Fredericka the Great', cursive;
+}
+
+.create-button, .delete-button, .edit-button {
+  font-family: 'Fredericka the Great', cursive;
+background-color: orange;
+height: 50px;
+width: 150px;
+margin-top: 20px;
+font-size: 25px;
+box-shadow: blue;
 }

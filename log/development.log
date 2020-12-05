@@ -5971,3 +5971,66 @@ Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 2371)
 Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.7ms | Allocations: 3442)
 
 
+Started GET "/skills" for ::1 at 2020-12-05 17:45:00 -0500
+Started GET "/players" for ::1 at 2020-12-05 17:45:00 -0500
+Started GET "/auth/verify" for ::1 at 2020-12-05 17:45:00 -0500
+Processing by SkillsController#index as HTML
+Processing by PlayersController#index as HTML
+  [1m[36mSkill Load (1.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+Processing by AuthenticationController#verify as HTML
+  ↳ app/controllers/skills_controller.rb:8:in `index'
+  [1m[36mPlayer Load (1.7ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 1.3ms | Allocations: 3568)
+
+
+  ↳ app/controllers/players_controller.rb:10:in `index'
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 1.7ms | Allocations: 3748)
+
+
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 5.9ms | Allocations: 3739)
+
+
+Started GET "/skills" for ::1 at 2020-12-05 17:46:05 -0500
+Started GET "/players" for ::1 at 2020-12-05 17:46:05 -0500
+Started GET "/auth/verify" for ::1 at 2020-12-05 17:46:05 -0500
+Processing by SkillsController#index as HTML
+Processing by PlayersController#index as HTML
+Processing by AuthenticationController#verify as HTML
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:10:in `index'
+  [1m[36mSkill Load (2.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/controllers/skills_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 1.0ms | Allocations: 2522)
+
+
+Completed 200 OK in 10ms (Views: 6.2ms | ActiveRecord: 2.6ms | Allocations: 3985)
+
+
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 6.4ms | Allocations: 4371)
+
+
+Started GET "/skills" for ::1 at 2020-12-05 17:48:56 -0500
+Started GET "/players" for ::1 at 2020-12-05 17:48:56 -0500
+Started GET "/auth/verify" for ::1 at 2020-12-05 17:48:56 -0500
+Processing by PlayersController#index as HTML
+Processing by AuthenticationController#verify as HTML
+Processing by SkillsController#index as HTML
+  [1m[36mPlayer Load (1.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:10:in `index'
+  [1m[36mSkill Load (1.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 1.6ms | Allocations: 1854)
+
+
+  ↳ app/controllers/skills_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 2607)
+
+
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 1.5ms | Allocations: 4145)
+
+
