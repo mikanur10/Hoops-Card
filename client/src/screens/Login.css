@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 
-.main-container-reg {
+.main-container-log {
 position: relative;
 opacity: .8;
 }
 
-.reg-container {
+.log-container {
   position: absolute;
   top: 100px;
   left: 450px;
@@ -20,11 +20,11 @@ opacity: .8;
 }
 
 
-.reg-container {
+.log-container {
   width: 500px;
 }
 
-.register-title {
+.login-title {
   font-family: 'Fredericka the Great', cursive;
   color: white;
   text-align: center;
@@ -32,12 +32,16 @@ opacity: .8;
   font-size: 30px;
 }
 
-.submit-reg {
+.submit-log {
 align-self: center;
-margin-left: 154px;
+margin-left: 90px;
 border-radius: 8px;
 width: 40%;
 height: 30px;
 font-family: 'Fredericka the Great', cursive;
 background-color: deepskyblue;
+}
+
+.register-link {
+  color: white;
 }

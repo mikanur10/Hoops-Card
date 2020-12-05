@@ -46,7 +46,6 @@ export default function Register(props) {
           />
           <br />
           <input
-            type='password'
             className="form-input"
             name='password'
             placeholder='password'
