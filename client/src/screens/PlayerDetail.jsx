@@ -29,21 +29,25 @@ export default function PlayerDetail(props) {
 
   return (
     <div>
-      <h2>{player?.name}</h2>
-      <img src={player?.img} alt="player"></img>
-      <h3>{player?.position}</h3>
-      {player?.skills.map(skill => (
-        <p key={skill.id}>{skill.name}</p>
-      ))}
-      <form onSubmit={handleSubmit}>
-        <select defaultValue='default' onChange={handleChange}>
-          <option disabled value='default'>-- Select a skill --</option>
-          {props.skills.map(skill => (
-            <option value={skill.id} key={skill.id}>{skill.name}</option>
-          ))}
-        </select>
-        <button>add</button>
-      </form>
+      <div>
+        <h2>{player?.name}</h2>
+        <img src={player?.img} alt="player"></img>
+        <h3>{player?.position}</h3>
+      </div>
+      <div>
+        {player?.skills.map(skill => (
+          <p key={skill.id}>{skill.name}</p>
+        ))}
+        <form onSubmit={handleSubmit}>
+          <select defaultValue='default' onChange={handleChange}>
+            <option disabled value='default'>-- Select a skill --</option>
+            {props.skills.map(skill => (
+              <option value={skill.id} key={skill.id}>{skill.name}</option>
+            ))}
+          </select>
+          <button>add</button>
+        </form>
+      </div>
     </div>
   )
 }
