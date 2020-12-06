@@ -3,6 +3,8 @@
 .create-container { 
   text-align: center;
   background-image: url("https://i.imgur.com/MNgVuUM.jpg");
+  height: 100%;
+  width: 100%;
   font-family: 'Fredericka the Great', cursive;
   color: white
 }
@@ -10,15 +12,22 @@
 .create-form {
   display: flex;
   flex-direction: column;
+  opacity: .8;
 }
 
 .input-name, .input-img, .input-position {
   margin-bottom: 20px;
 }
 
-.create-button {
+.screen-create-button {
   border-radius: 15px 50px 30px;
   height: 30px;
   font-family: 'Fredericka the Great', cursive;
   background-color: orange;
+  margin-bottom: 500px;
+}
+
+.create-title {
+  font-size: 30px;
+  padding-bottom: 30px;
 }

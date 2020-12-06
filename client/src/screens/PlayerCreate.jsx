@@ -20,7 +20,7 @@ export default function PlayerCreate(props) {
   return (
     <div className="create-container">
       <div>
-        <h3>Create Player Card</h3>
+        <h3 className="create-title">Create Player Card</h3>
       </div>
       <div className="create-form">
         <form onSubmit={(e) => {
@@ -55,7 +55,7 @@ export default function PlayerCreate(props) {
             />
           </div>
           <div>
-            <button className="create-button">Submit</button>
+            <button className="screen-create-button">Submit</button>
           </div>
         </form>
       </div>
