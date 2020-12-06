@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './PlayerEdit.css'
 
 export default function FoodEdit(props) {
   const [formData, setFormData] = useState({
@@ -32,36 +33,44 @@ export default function FoodEdit(props) {
   }
 
   return (
-    <form onSubmit={(e) => {
-      e.preventDefault();
-      props.handleUpdate(id, formData);
-    }}>
-      <h3>Edit Player</h3>
-      <label>Name:
-        <input
-          type='text'
-          name='name'
-          value={formData.name}
-          onChange={handleChange}
-        />
-      </label>
-      <label>Image:
-        <input
-          type='text'
-          name='img'
-          value={formData.img}
-          onChange={handleChange}
-        />
-      </label>
-      <label>Position:
-        <input
-          type='text'
-          name='position'
-          value={formData.position}
-          onChange={handleChange}
-        />
-      </label>
-      <button>Submit</button>
-    </form>
+    <div className="edit-container">
+      <div>
+        <h3 className="edit-title">Edit Player Card</h3>
+      </div>
+      <div className="edit-form">
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          props.handleUpdate(id, formData);
+        }}>
+          <div className="edit-input-name">
+            <input
+              type='text'
+              name='name'
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="edit-input-img">
+            <input
+              type='text'
+              name='img'
+              value={formData.img}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="edit-input-position">
+            <input
+              type='text'
+              name='position'
+              value={formData.position}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <button className="screen-edit-button">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
   )
 }
