@@ -19,37 +19,46 @@ export default function PlayerCreate(props) {
 
   return (
     <div className="create-container">
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        props.handleCreate(formData);
-      }}>
+      <div>
         <h3>Create Player Card</h3>
-        <label>Name:
-        <input
-            type='text'
-            name='name'
-            value={formData.name}
-            onChange={handleChange}
-          />
-        </label>
-        <label>Image:
-        <input
-            type='text'
-            name='img'
-            value={formData.img}
-            onChange={handleChange}
-          />
-        </label>
-        <label>Position:
-        <input
-            type='text'
-            name='position'
-            value={formData.position}
-            onChange={handleChange}
-          />
-        </label>
-        <button>Submit</button>
-      </form>
+      </div>
+      <div className="create-form">
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          props.handleCreate(formData);
+        }}>
+          <div className="input-name">
+            <input
+              type='text'
+              name='name'
+              placeholder='Name'
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="input-img">
+            <input
+              type='text'
+              placeholder='Image URL'
+              name='img'
+              value={formData.img}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="input-position">
+            <input
+              type='text'
+              placeholder='Position'
+              name='position'
+              value={formData.position}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <button className="create-button">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }

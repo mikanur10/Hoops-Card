@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
 .create-container { 
   text-align: center;
+  background-image: url("https://i.imgur.com/MNgVuUM.jpg");
+  font-family: 'Fredericka the Great', cursive;
+  color: white
+}
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-name, .input-img, .input-position {
+  margin-bottom: 20px;
+}
+
+.create-button {
+  border-radius: 15px 50px 30px;
+  height: 30px;
+  font-family: 'Fredericka the Great', cursive;
+  background-color: orange;
 }
