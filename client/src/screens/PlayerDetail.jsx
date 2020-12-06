@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { addSkill } from '../services/skills';
 import { getOnePlayer } from '../services/players';
+import './PlayerDetail.css'
+
 
 export default function PlayerDetail(props) {
   const [player, setPlayer] = useState(null);
@@ -28,24 +30,24 @@ export default function PlayerDetail(props) {
   }
 
   return (
-    <div>
+    <div className="player-detail-container">
       <div>
         <h2>{player?.name}</h2>
-        <img src={player?.img} alt="player"></img>
+        <img className="detail-image" src={player?.img} alt="player" width="400px" height="300px"></img>
         <h3>{player?.position}</h3>
       </div>
-      <div>
+      <div className="skill-menu">
         {player?.skills.map(skill => (
           <p key={skill.id}>{skill.name}</p>
         ))}
         <form onSubmit={handleSubmit}>
-          <select defaultValue='default' onChange={handleChange}>
+          <select className="drow-down" defaultValue='default' onChange={handleChange}>
             <option disabled value='default'>-- Select a skill --</option>
             {props.skills.map(skill => (
               <option value={skill.id} key={skill.id}>{skill.name}</option>
             ))}
           </select>
-          <button>add</button>
+          <button className="skill-add-button" >add</button>
         </form>
       </div>
     </div>

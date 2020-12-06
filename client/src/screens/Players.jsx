@@ -13,7 +13,7 @@ export default function Players(props) {
             <React.Fragment key={player.id}>
               <Link className="player-name" to={`/players/${player.id}`}><p>{player.name}</p></Link>
               <div>
-                <img src={player.img} width="400px" height="300px" alt="player"></img>
+                <img className="card-image" src={player.img} width="400px" height="300px" alt="player"></img>
               </div>
               <p>{player.position}</p>
               {
