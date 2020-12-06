@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import './PlayerCreate.css'
+
 
 export default function PlayerCreate(props) {
   const [formData, setFormData] = useState({
@@ -20,7 +22,7 @@ export default function PlayerCreate(props) {
       e.preventDefault();
       props.handleCreate(formData);
     }}>
-      <h3>Create Food</h3>
+      <h3>Create Player Card</h3>
       <label>Name:
         <input
           type='text'
