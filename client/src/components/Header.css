@@ -58,15 +58,12 @@
     font-family: 'Fredericka the Great', cursive;
   }
 }
-/* @media screen and (max-width: 400px) {
-  .review {
-    width: 250px;
-  }
-  #header-size {
-    width: 370px;
-  }
-  .typical-text {
-    font-size: 20px;
-    padding-bottom: 600px;
-  }
-} */
+@media screen and (max-width: 400px) {
+  .nav-links {
+    margin-left: 115px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    }
+}
