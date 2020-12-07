@@ -27,7 +27,6 @@ export default function Players(props) {
           </div>
         ))
       }
-      {/* <br /> */}
     </div>
   )
 }
