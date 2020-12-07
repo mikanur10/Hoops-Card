@@ -31,7 +31,7 @@
   font-size: 30px;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 700px) {
   .create-container {
   background-image: url("https://d1l5jyrrh5eluf.cloudfront.net/wp-content/uploads/2018/10/abmamba3.jpg");
   height: 1000px;

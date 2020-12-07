@@ -41,7 +41,7 @@ box-shadow: blue;
 border-radius: 15px 50px 30px;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 700px) {
   .player-cards {
     text-align: center;
     margin-bottom: 50px;
