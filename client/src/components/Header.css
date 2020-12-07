@@ -41,3 +41,32 @@
   color: black;
 }
 
+@media screen and (max-width: 1500px) {
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 325px;
+    width: 30%;
+    font-family: 'Fredericka the Great', cursive;
+  }
+}
+/* @media screen and (max-width: 400px) {
+  .review {
+    width: 250px;
+  }
+  #header-size {
+    width: 370px;
+  }
+  .typical-text {
+    font-size: 20px;
+    padding-bottom: 600px;
+  }
+} */
