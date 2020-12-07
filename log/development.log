@@ -8224,3 +8224,73 @@ Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.7ms | Allocations: 1611)
 Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 1.2ms | Allocations: 3824)
 
 
+Started GET "/skills" for ::1 at 2020-12-06 20:03:16 -0500
+Started GET "/players" for ::1 at 2020-12-06 20:03:16 -0500
+Processing by PlayersController#index as HTML
+Processing by SkillsController#index as HTML
+  [1m[36mPlayer Load (1.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:10:in `index'
+  [1m[36mSkill Load (1.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/controllers/skills_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 1.5ms | Allocations: 1867)
+
+
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 1.3ms | Allocations: 3778)
+
+
+Started GET "/skills" for ::1 at 2020-12-06 20:04:54 -0500
+Started GET "/players" for ::1 at 2020-12-06 20:04:54 -0500
+Processing by SkillsController#index as HTML
+Processing by PlayersController#index as HTML
+  [1m[36mSkill Load (4.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/controllers/skills_controller.rb:8:in `index'
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+Completed 200 OK in 9ms (Views: 4.5ms | ActiveRecord: 4.0ms | Allocations: 2826)
+
+
+  ↳ app/controllers/players_controller.rb:10:in `index'
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 1.3ms | Allocations: 3818)
+
+
+Started GET "/skills" for ::1 at 2020-12-06 20:07:37 -0500
+Started GET "/players" for ::1 at 2020-12-06 20:07:37 -0500
+Processing by SkillsController#index as HTML
+Processing by PlayersController#index as HTML
+  [1m[36mSkill Load (2.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/controllers/skills_controller.rb:8:in `index'
+  [1m[36mPlayer Load (1.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+Completed 200 OK in 7ms (Views: 4.0ms | ActiveRecord: 2.6ms | Allocations: 2839)
+
+
+  ↳ app/controllers/players_controller.rb:10:in `index'
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 1.6ms | Allocations: 3833)
+
+
+Started GET "/skills" for ::1 at 2020-12-06 20:08:06 -0500
+Processing by SkillsController#index as HTML
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/controllers/skills_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.3ms | Allocations: 2244)
+
+
+Started GET "/players" for ::1 at 2020-12-06 20:08:06 -0500
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 1481)
+
+
+Started GET "/skills" for ::1 at 2020-12-06 20:08:26 -0500
+Started GET "/players" for ::1 at 2020-12-06 20:08:26 -0500
+Processing by SkillsController#index as HTML
+  [1m[36mSkill Load (0.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+Processing by PlayersController#index as HTML
+  ↳ app/controllers/skills_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.6ms | Allocations: 2824)
+
+
+  [1m[36mPlayer Load (2.8ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:10:in `index'
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 2.8ms | Allocations: 3183)
+
+
