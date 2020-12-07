@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import './PlayerCreate.css'
+
 
 export default function PlayerCreate(props) {
   const [formData, setFormData] = useState({
@@ -16,36 +18,47 @@ export default function PlayerCreate(props) {
   }
 
   return (
-    <form onSubmit={(e) => {
-      e.preventDefault();
-      props.handleCreate(formData);
-    }}>
-      <h3>Create Food</h3>
-      <label>Name:
-        <input
-          type='text'
-          name='name'
-          value={formData.name}
-          onChange={handleChange}
-        />
-      </label>
-      <label>Image:
-        <input
-          type='text'
-          name='img'
-          value={formData.img}
-          onChange={handleChange}
-        />
-      </label>
-      <label>Position:
-        <input
-          type='text'
-          name='position'
-          value={formData.position}
-          onChange={handleChange}
-        />
-      </label>
-      <button>Submit</button>
-    </form>
+    <div className="create-container">
+      <div>
+        <h3 className="create-title">Create Player Card</h3>
+      </div>
+      <div className="create-form">
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          props.handleCreate(formData);
+        }}>
+          <div className="input-name">
+            <input
+              type='text'
+              name='name'
+              placeholder='Name'
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="input-img">
+            <input
+              type='text'
+              placeholder='Image URL'
+              name='img'
+              value={formData.img}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="input-position">
+            <input
+              type='text'
+              placeholder='Position'
+              name='position'
+              value={formData.position}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <button className="screen-create-button">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
   )
 }

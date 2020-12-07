@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+.create-container { 
+  text-align: center;
+  background-image: url("https://i.imgur.com/MNgVuUM.jpg");
+  height: 100%;
+  width: 100%;
+  font-family: 'Fredericka the Great', cursive;
+  color: white
+}
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+  opacity: .8;
+}
+
+.input-name, .input-img, .input-position {
+  margin-bottom: 20px;
+}
+
+.screen-create-button {
+  border-radius: 15px 50px 30px;
+  height: 30px;
+  font-family: 'Fredericka the Great', cursive;
+  background-color: orange;
+  margin-bottom: 500px;
+}
+
+.create-title {
+  font-size: 30px;
+}
+
+@media screen and (max-width: 700px) {
+  .create-container {
+  background-image: url("https://d1l5jyrrh5eluf.cloudfront.net/wp-content/uploads/2018/10/abmamba3.jpg");
+  height: 1000px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .create-container {
+    background-image: url("https://papreplive.com/wp-content/uploads/2016/12/BASKETBALL_STOCK.jpg");  
+  }
+}

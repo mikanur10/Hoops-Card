@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+.player-detail-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  font-family: 'Fredericka the Great', cursive;
+  background-image: url("https://i.imgur.com/FlEgk9o.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: white;
+}
+
+.skill-menu {
+  border-top: 200px;
+}
+
+.detail-image {
+  border: 5px solid orange;
+}
+
+.skill-add-button {
+  font-family: 'Fredericka the Great', cursive;
+  background-color: orange;
+  height: 30px;
+  width: 125px;
+  margin-top: 20px;
+  font-size: 18px;
+  box-shadow: blue;
+  border-radius: 15px 50px 30px;
+}
+
+.drow-down {
+  height: 30px;
+  margin-right: 35px;
+  border-radius: 15px 50px 30px;
+  font-family: 'Fredericka the Great', cursive;
+}

@@ -58,8 +58,6 @@ export default function MainContainer(props) {
       <Route path='/players/new'>
         <PlayerCreate handleCreate={handleCreate} />
       </Route>
-      {/* Here, we're adding a route for our single food screen */}
-      {/* we're passing it "skills" to use in our drop down form */}
       <Route path='/players/:id'>
         <PlayerDetail skills={skills} />
       </Route>

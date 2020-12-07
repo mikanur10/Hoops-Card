@@ -35,3 +35,35 @@
   text-decoration: none;
   color: black
 }
+
+.logo {
+  text-decoration: none;
+  color: black;
+}
+
+@media screen and (max-width: 700px) {
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 240px;
+    width: 30%;
+    font-family: 'Fredericka the Great', cursive;
+  }
+}
+@media screen and (max-width: 400px) {
+  .nav-links {
+    margin-left: 115px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    }
+}
